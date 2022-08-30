@@ -1,0 +1,117 @@
+configuration {
+	font:							"JetBrains Mono Nerd Font 10";
+    show-icons:                     true;
+	icon-theme: 					"Papirus";
+    display-drun: 					"";
+    drun-display-format:            "{name}";
+    disable-history:                false;
+    fullscreen:                     false;
+	hide-scrollbar: 				true;
+	sidebar-mode: 					false;
+}
+
+@import "colors.rasi"
+
+window {
+    transparency:                   "real";
+    background-color:               @dark;
+    text-color:                     @light;
+	border:							0;
+	border-color:					@gray;
+    border-radius:                  0;
+	width:							400px;
+    location:                       center;
+    x-offset:                       0;
+    y-offset:                       0;
+}
+
+prompt {
+	font:							"JetBrains Mono Nerd Font 10";
+    enabled: 						true;
+    padding:                        10px;
+	background-color: 				@dark;
+	text-color: 					@gray;
+}
+
+textbox-prompt-colon {
+	str: "直";
+	font:							"Iosevka Nerd Font 10";
+	padding: 						10px 15px 10px 15px;
+	background-color: 				@dark;
+	text-color: 					@gray;
+	expand:                         false;
+}
+
+entry {
+    background-color:               @dark;
+    text-color:                     @gray;
+    placeholder-color:              @gray;
+    expand:                         true;
+    horizontal-align:               0;
+    placeholder:                    "Search...";
+    padding:                        10px 10px 10px 0;
+    border-radius:                  0;
+    blink:                          true;
+}
+
+inputbar {
+	children: 						[ textbox-prompt-colon, prompt ];
+    background-color:               @dark;
+    text-color:                     @light;
+    expand:                         false;
+	border:							0 0 1px 0;
+    border-radius:                  0;
+	border-color:					@gray;
+    spacing:                        0;
+}
+
+listview {
+    background-color:               @dark;
+    padding:                        0;
+    columns:                        1;
+    lines:                          8;
+    spacing:                        5px;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+mainbox {
+    background-color:               @dark;
+	border:							0;
+    border-radius:                  0;
+	border-color:					@gray;
+    children:                       [ inputbar, listview ];
+    spacing:                       	10px;
+    padding:                        2px 10px 10px 10px;
+}
+
+element {
+    background-color:               @dark;
+    text-color:                     @light;
+    orientation:                    horizontal;
+    border-radius:                  0;
+    padding:                        8px;
+}
+
+element-icon {
+    size:                           24px;
+    border:                         0;
+    background-color:               @transparent;
+}
+
+element-text {
+    text-color:                     @light;
+    background-color:               @transparent;
+    expand:                         true;
+    horizontal-align:               0;
+    vertical-align:                 0.5;
+    margin:                         0 2.5px 0 10px;
+}
+
+element selected {
+    border:                         0;
+    border-color:                   @gray;
+    border-radius:                  0;
+    background-color:               @gray;
+}

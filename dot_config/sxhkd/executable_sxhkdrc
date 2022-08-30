@@ -1,0 +1,96 @@
+# Terminal emulator
+super + Return
+	kitty
+
+# Start rofi
+super + space
+	~/.config/polybar/scripts/launcher.sh
+
+# Start rofi
+super + ctrl + space
+	~/.config/polybar/scripts/powermenu.sh
+
+# Exit WM
+super + ctrl + Escape
+	bspc quit
+
+# Reload WM and sxhld config file
+super + ctrl + r
+	{bspc wm -r, pkill -USR1 -x sxhkd}
+
+# Close window
+super + q
+	bspc node -c
+
+# File manager
+super + e
+	nemo
+
+# Open app
+super + ctrl + f
+	firefox -p
+
+super + ctrl + t
+	~/Soft/Telegram/Telegram
+
+super + ctrl + e
+	subl
+
+super + ctrl + c
+	gnome-calculator
+
+super + ctrl + b
+	bitwarden-desktop
+
+# Move window
+super + shift + {Left,Down,Up,Right}
+	bspc node -v {-20 0, 0 20, 0 -20, 20 0}
+
+# Focus or send to the given workspace
+super + {_,shift + } {1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# Focus the next/previous workspace in the current monitor
+super + {Left, Right}
+	bspc desktop -f {prev,next}.local
+
+# Focus the last node/workspace
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# Focus the next/previous window in the current workspace
+alt + {_,shift + } Tab
+	bspc node -f {next,prev}.local.!hidden.window
+
+# Window size -
+super + alt + {Left, Down, Up, Right}
+	bspc node -z {left -20 0, bottom 0 20, top 0 -20, right 20 0}
+
+# Window size +
+super + alt + shift + {Right, Up, Down, Left}
+	bspc node -z {right -20 0, top 0 20, bottom 0 -20, left 20 0}
+
+# Switch tiled/floating
+super + {f,shift + f}
+	bspc node -t {tiled,floating}
+
+# Change orientation
+super + {_,shift + }h
+	bspc node '@parent' -R {_,-}90
+
+# Brightness control
+XF86MonBrightnessDown
+	xbacklight -dec 5
+
+XF86MonBrightnessUp
+	xbacklight -inc 5
+
+# Screenshot
+Print
+	flameshot gui
+
+Print + ctrl
+	flameshot full
+
+Print + super
+	flameshot screen

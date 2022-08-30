@@ -1,0 +1,7 @@
+/* Confirm Dialog */
+
+@import "confirm.rasi"
+
+window {
+    width:      			320px;
+}

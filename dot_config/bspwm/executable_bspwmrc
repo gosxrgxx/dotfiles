@@ -1,0 +1,33 @@
+#! /bin/sh
+
+# Autostart
+pgrep -x sxhkd > /dev/null || sxhkd &
+~/.config/polybar/launch.sh &
+eval $(ssh-add) &
+
+# Workspaces
+bspc monitor -d 1 2 3 4 5 6
+
+bspc config border_width         0
+bspc config window_gap           4
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+# Rules
+bspc rule -a kitty state=floating follow=on rectangle=850x650+125+40 desktop='^1' 
+bspc rule -a subl follow=on desktop='^2'
+bspc rule -a Nemo state=floating follow=on rectangle=950x650+225+80 desktop='^3'
+bspc rule -a Xarchiver state=floating follow=on rectangle=850x500+275+140 desktop='^3'
+bspc rule -a TelegramDesktop follow=on state=floating rectangle=1250x720+58+37 desktop='^4'
+bspc rule -a Code follow=on desktop='^5'
+bspc rule -a firefox follow=on desktop='^6'
+
+bspc rule -a Pavucontrol follow=on state=floating rectangle=750x450+300+150
+bspc rule -a Lxappearance follow=on state=floating rectangle=750x450+300+150
+bspc rule -a Nitrogen follow=on state=floating rectangle=750x450+300+150
+bspc rule -a qView state=floating follow=on
+bspc rule -a KeePassXC state=floating follow=on rectangle=1050x600+58+37
+bspc rule -a Bitwarden state=floating follow=on rectangle=1050x720+58+37
+bspc rule -a gnome-calculator state=floating follow=on rectangle=400x350+58+37
